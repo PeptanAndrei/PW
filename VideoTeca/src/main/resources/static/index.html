@@ -80,10 +80,53 @@
 	      </ul>
 	    </div>
   </div>
+  
  </div>
   </div>
  
  
+<div class="container slide"> 
+ <h3 >Watch the latest trailers</h3>
+				   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+				   <ul id="flexiselDemo1">
+						<li><a href="https://www.youtube.com/watch?v=HSzx-zryEgM"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg" class="img-slider" /></a></li>
+						<li><a href="https://www.youtube.com/watch?v=BF2Ksrxu_QY"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNDg1NjYyMTEyOF5BMl5BanBnXkFtZTgwNzY4MDMyMzI@._V1_SY1000_CR0,0,674,1000_AL_.jpg" class="img-slider"/></a></li>
+						<li><a href="https://www.youtube.com/watch?v=EuOlYPSEzSc"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTA0OTQwMTIxNzheQTJeQWpwZ15BbWU4MDQ1MzI3OTMy._V1_.jpg" class="img-slider"/></a></li>
+						<li><a href="https://www.youtube.com/watch?v=EuOlYPSEzSc"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNTBlOWZhZTctOTY0MC00Y2QyLTljMmYtZDkxZDFlMWU4Y2EyXkEyXkFqcGdeQXVyNDg2MjUxNjM@._V1_SY1000_CR0,0,675,1000_AL_.jpg" class="img-slider"/></a></li>
+						<li><a href="https://www.youtube.com/watch?v=hN0JkFrvO_M"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMjgwMDM4Ml5BMl5BanBnXkFtZTgwMTk3NTIwNDE@._V1_SY1000_CR0,0,675,1000_AL_.jpg" class="img-slider"/></a></li>
+						<li><a href="https://www.youtube.com/watch?v=gtTfd6tISfw"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjQyODg5Njc4N15BMl5BanBnXkFtZTgwMzExMjE3NzE@._V1_SY1000_SX686_AL_.jpg" class="img-slider"/></a></li>
+						<li><a href="https://www.youtube.com/watch?v=dKrVegVI0Us"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SY1000_CR0,0,674,1000_AL_.jpg" class="img-slider"/></a></li>
+						<li><a href="https://www.youtube.com/watch?v=RH3OxVFvTeg"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjQwODQwNTg4OV5BMl5BanBnXkFtZTgwMTk4MTAzMjI@._V1_.jpg" class="img-slider"/></a></li>
+				     </ul>
+				    <script type="text/javascript">
+				    
+					 $(window).load(function() {
+						$("#flexiselDemo1").flexisel({
+							visibleItems: 7,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+					    	responsiveBreakpoints: { 
+					    		portrait: { 
+					    			changePoint:480,
+					    			visibleItems: 1
+					    		}, 
+					    		landscape: { 
+					    			changePoint:640,
+					    			visibleItems: 2
+					    		},
+					    		tablet: { 
+					    			changePoint:768,
+					    			visibleItems: 3
+					    		}
+					    	}
+					    });
+					    
+					});
+				   </script>
+</div>		
  
 <div class="container"> 
  <footer id="footer">
@@ -103,7 +146,7 @@
 			  </div>
 			 <div class="footer_box">
 			  <div class="col_1_of_3 span_1_of_3">
-					<h3>Categories</h3>
+					<h2>Categories</h2>
 					<ul class="first">
 						<li><a href="#">Dance</a></li>
 						<li><a href="#">History</a></li>
@@ -111,13 +154,13 @@
 					</ul>
 		     </div>
 		     <div class="col_1_of_3 span_1_of_3">
-					<h3>ONLY FOR DEVS</h3>
+					<h2>ONLY FOR DEVS</h2>
 					<ul class="first">
 						<li><a href="/addMovieForm.html">+ ADD NEW MOVIE</a></li>
 					</ul>
 		     </div>
 		     <div class="col_1_of_3 span_1_of_3">
-					<h3>Follow Us</h3>
+					<h2>Follow Us</h2>
 					<ul class="first">
 						<li><a href="#">Facebook</a></li>
 						<li><a href="#">Twitter</a></li>
@@ -136,3 +179,4 @@
 </div>		
 </body>
 </html>
+
