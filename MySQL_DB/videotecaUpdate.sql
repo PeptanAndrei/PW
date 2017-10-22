@@ -27,6 +27,10 @@ CREATE TABLE `movie` (
   `name` varchar(45) DEFAULT NULL,
   `year` varchar(45) DEFAULT NULL,
   `director` varchar(45) DEFAULT NULL,
+  `genre` varchar(45) DEFAULT NULL,
+  `image` varchar(45) DEFAULT NULL,
+  `video` varchar(45) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`idmovie`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-18  2:41:25
+-- Dump completed on 2017-10-22 18:13:34
