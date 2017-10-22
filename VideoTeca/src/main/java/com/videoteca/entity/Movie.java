@@ -25,6 +25,18 @@ public class Movie {
 	@Column(name = "director")
 	private String director;
 	
+	@Column(name = "genre")
+	private String genre;
+	
+	@Column(name = "price")
+	private int price;
+	
+	@Column(name = "image")
+	private String image;
+	
+	@Column(name = "video")
+	private String video;
+	
 	public int getId() {
 		return id;
 	}
@@ -55,6 +67,38 @@ public class Movie {
 	
 	public void setDirector(String director) {
 		this.director = director;
+	}
+	
+	public String getGenre() {
+		return genre;
+	}
+	
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	public String getVideo() {
+		return video;
+	}
+	
+	public void setVideo(String video) {
+		this.video = video;
 	}
 	
 }

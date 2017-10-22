@@ -34,8 +34,13 @@ border-top-right-radius: 3px;
 -moz-border-top-right-radius: 3px;
 -o-border-top-right-radius: 3px;
 }
+.cart{
+	float: right;
+	padding-top: 15px;
+}
 .logo{
 	margin-top: 4px;
+	float: left;
 }
 /*---social-icons-----*/
 .nav {
@@ -547,7 +552,7 @@ i.icon3{
 }
 .content{
 	background:#80d5e8;
-	padding:2em;
+	padding:1em;
 }
 .search {
 border-top: none;
@@ -555,7 +560,7 @@ border-left: none;
 border-right: none;
 border-bottom: 1px solid #CACACA;
 background: none;
-position: fixed;
+position: relative;
 margin-bottom: 2em;
 float:center;
 }
@@ -1482,6 +1487,7 @@ ul.header_right_box {
 }
 .col-sm-3.header_right {
 	float: right;
+	height: 100px;
 }
 ul.header_right_box li {
 	margin: 0 1%;
@@ -1597,7 +1603,7 @@ ul.list_1 li {
 	float: none;
 }
 .content {
-	padding: 1em;
+	padding: 0em;
 }
 h2.m_3 {
 	font-size: 22px;

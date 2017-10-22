@@ -1,0 +1,141 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>VideoTeca - your DVD movie shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<script src="js/responsiveslides.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="container_wrap">
+		<div class="header_top">
+		    <div class="col-sm-3 logo"><a href="index.html"><img src="images/videotecaLogo.png" alt=""/></a></div>
+			<div class="col-sm-6 nav">
+			  <ul>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"></span></li>
+			<li><span class="simptip-position-bottom simptip-movable" data-tooltip="add movie"></span></li>
+			 </ul>
+			</div>
+			<div class="col-sm-3 header_right">
+				<a href="index.html"><img src="images/cartIcon.png" alt=""/></a>
+			</div>
+			<div class="clearfix"> </div>
+	      </div>
+      <div class="content">
+      	<div class="box_1">
+      	 <h1 class="m_2">Search Movies</h1>
+      	 <div class="clearfix"> </div>
+      	 <div class="search">
+		    <form>
+				<input type="text" value="Search..." onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+				<input type="submit" value="">
+		    </form>
+		</div>
+		<div class="clearfix"> </div>
+		</div>
+		<div class="box_2">
+<!-- 			TODO -->
+      </div>
+      <form id="addMovieForm" class="form form-inline" action="/movies/" method="POST" >
+			<fieldset>
+				<h1><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add new movie</h1>
+				
+				<label class="control-label col-md-2" >Name:</label>
+				<div class="clearfix"> </div>
+				<input class="form-control input-sm" type="text" id ="name" name="name" th:attr="value=${movie.name}" ></input><br /><br />
+				
+				<label class="control-label col-md-2" >Year:</label> 
+				<div class="clearfix"> </div>
+				<input class="form-control input-sm" type="text" id="year" name="year"></input><br /> <br />
+				
+				<label class="control-label col-md-2" >Director:</label> 
+				<div class="clearfix"> </div>
+				<input class="form-control input-sm" type="text" id="director" name="director"></input><br /> <br />
+    			
+				<label class="control-label col-md-2" >Genre: </label>
+				<div class="clearfix"> </div>
+				<input class="form-control input-sm" type="text" id="genre" name="genre" ></input><br /> <br />
+				
+				<label class="control-label col-md-2" >Image: </label>
+				<div class="clearfix"> </div>
+				<input class="form-control input-sm" type="text" id="image" name="image"></input><br /> <br />
+				
+				<label class="control-label col-md-2" >Video: </label>
+				<div class="clearfix"> </div>
+				<input class="form-control input-sm" type="text" id="video" name="video" onblur="if (this.value != '') {var value=document.getElementById('video').value; var poz = value.lastIndexOf('=')+1; this.value=value.substring(poz,value.lenght);}"></input><br /> <br />
+
+				<label class="control-label col-md-2" >Price:</label> 
+				<div class="clearfix"> </div>
+				<input class="form-control col-md-10 input-sm" type="text" id="price" name="price"></input><br /> <br />
+				
+				<button class="btn btn-lg btn-primary" type="submit">
+					<b>Submit</b>
+				</button>
+			</fieldset>	
+			</form>
+   </div>
+ </div>
+  </div>
+
+
+
+<div class="container"> 
+ <footer id="footer">
+ 	<div id="footer-3d">
+		<div class="gp-container">
+			<span class="first-widget-bend"></span>
+		</div>		
+	</div>
+    <div id="footer-widgets" class="gp-footer-larger-first-col">
+		<div class="gp-container">
+            <div class="footer-widget footer-1">
+            	<div class="wpb_wrapper">
+					<img src="images/f_logo.png" alt=""/>
+				</div> 
+	          </div>
+			 <div class="footer_box">
+			  <div class="col_1_of_3 span_1_of_3">
+					<h3>Categories</h3>
+					<ul class="first">
+						<li><a href="#">Dance</a></li>
+						<li><a href="#">History</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>Information</h3>
+					<ul class="first">
+						<li><a href="#">New products</a></li>
+						<li><a href="#">top sellers</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>Follow Us</h3>
+					<ul class="first">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Youtube</a></li>
+					</ul>
+					<div class="copy">
+				      <p>&copy; 2015 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
+			        </div>
+		     </div>
+		    <div class="clearfix"> </div>
+	        </div>
+	        <div class="clearfix"> </div>
+		</div>
+	</div>
+  </footer>
+</div>		
+</body>
+</html>
