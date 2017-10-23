@@ -2,11 +2,11 @@ Nume: Videoteca
 Contribuitori: Pele Daniel, Peptan Andrei
 
 Cerinte: 
-  - cautare filme
   - adaugare cos
   - cumparare
-  - review + nota
-  - vizualizare detalii film (trailer, an aparitie, actori,etc.)
+  - vizualizare filmul saptamanii (recomandare)
+  - vizualizare filme cu pret redus
+  - vizualizare detalii film (trailer, an aparitie, director, nota, etc.)
 
 Specificatii:
   - HTML, CSS
