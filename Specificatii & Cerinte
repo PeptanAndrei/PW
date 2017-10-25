@@ -1,0 +1,17 @@
+Nume: Videoteca
+Contribuitori: Pele Daniel, Peptan Andrei
+
+Cerinte: 
+  - adaugare cos
+  - cumparare
+  - vizualizare filmul saptamanii (recomandare)
+  - vizualizare filme cu pret redus
+  - vizualizare detalii film (trailer, an aparitie, director, nota, etc.)
+
+Specificatii:
+  - HTML, CSS
+  - JAVASCRIPT
+  - JAVA:
+         - SPRING FRAMEWORK
+         
+  
