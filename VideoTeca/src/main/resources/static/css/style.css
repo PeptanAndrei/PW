@@ -26,6 +26,11 @@ body a{
 .img-slider{
 	width: 160px;
 }
+.cart_names{
+	color: black;
+	font-size: 2em;
+	float: right;
+}
 .header_top{
 	background: #fff;
 padding:0.5em 0.5em 0.5em 0.5em;
@@ -40,7 +45,7 @@ border-top-right-radius: 3px;
 }
 .cart{
 	float: right;
-	padding-top: 25px;
+	padding-top: 30px;
 }
 .logo{
 	margin-top: 4px;
@@ -54,7 +59,6 @@ border-top-right-radius: 3px;
 .nav ul{
 	padding:0;
 	margin:0;
-	list-style:none;
 }
 .nav li{
 	
@@ -635,10 +639,10 @@ float: left;
 margin-right:4%;
 }
 p.m_3{
-	position: absolute;
-top: -30px;
-color: #fff;
-font-size: 1.1em;
+position: relative;
+top: -10px;
+color: black;
+font-size: 1.4em;
 width: 100%;
 
 text-align: center;
@@ -1126,16 +1130,20 @@ padding-left: 15px;
 p.movie_option {
 font-size: 15px;
 margin-bottom: 15px;
+color: black;
 }
 p.movie_option a{
 	color:#555;
 }
 
 p.m_4{
-	color: #888;
+position: relative;
+top: -10px;
+color: #F44336;
 font-size: 1em;
-line-height: 1.8em;
-margin:3em 0;
+width: 100%;
+font-family: serif;
+text-align: center;
 }
 ul.single_list {
 	margin-bottom: 30px;
@@ -1474,7 +1482,7 @@ i.icon6{
 }
 p.m_3 {
 	top: -43px;
-	font-size: 1em;
+	font-size: 2em;
 }
 .video iframe {
 	min-height: 180px;
@@ -1671,6 +1679,15 @@ li.last-comment {
 h1.m_2 {
 	font-size: 1.1em;
 	margin-top: 6px;
+}
+p.m_2 {
+position: relative;
+top: -10px;
+color: black;
+font-size: 2em;
+width: 100%;
+
+text-align: center;
 }
 i.icon4 {
 	top: -200px;
