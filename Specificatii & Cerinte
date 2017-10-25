@@ -11,6 +11,7 @@ Cerinte:
   - adăugare și editare film în baza de date (doar pentru developeri)
   
 Specificatii:
+  - MySQL
   - HTML, CSS
   - JAVASCRIPT
   - JAVA:
