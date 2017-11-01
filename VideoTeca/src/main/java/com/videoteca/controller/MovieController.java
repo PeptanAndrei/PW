@@ -24,6 +24,21 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 	
+	@RequestMapping(value= "/Index", method = RequestMethod.GET)
+	public String getIndex(){
+		return "index.html";
+	}
+	
+	@RequestMapping(value= "/Movie", method = RequestMethod.GET)
+	public String getMovie(){
+		return "movie.html";
+	}
+	
+	@RequestMapping(value= "/Sales", method = RequestMethod.GET)
+	public String getSales(){
+		return "sales.html";
+	}
+	
 	@RequestMapping(value="/addCart/{id}", method = RequestMethod.GET)//edit method
 	public void addToCart(@PathVariable("id") int id){
 		if(!cartMovies.contains(id))
@@ -36,17 +51,22 @@ public class MovieController {
 		return movieService.showCart(cartMovies);
 	}
 	
-	@RequestMapping(value= "/singleMovie", method = RequestMethod.GET)//return form page to create movie
+	@RequestMapping(value= "/Cart", method = RequestMethod.GET)
+	public String getCart(){
+		return "cart.html";
+	}
+	
+	@RequestMapping(value= "/singleMovie", method = RequestMethod.GET)
 	public String getSingleMovie(@QueryParam("id") int id){
 		return "single.html";
 	}
 	
-	@RequestMapping(value= "/addMovie", method = RequestMethod.GET)//return form page to create movie
+	@RequestMapping(value= "/addMovie", method = RequestMethod.GET)
 	public String getAddMovieForm(){
 		return "addMovieForm.html";
 	}
 	
-	@RequestMapping(value= "/editMovie", method = RequestMethod.GET)//return a form where you can edit a movie
+	@RequestMapping(value= "/editMovie", method = RequestMethod.GET)
 	public String getEditMovieForm(@QueryParam("id") int id,  Model model) {
 		Movie movie = movieService.findOne(id);
 		model.addAttribute("movie", movie);
@@ -65,7 +85,7 @@ public class MovieController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/movies", method = RequestMethod.POST)//create method
+	@RequestMapping(value="/movies", method = RequestMethod.POST)
 	public String addMOVIE(final @RequestParam("name") String name, final @RequestParam("year") int year,
 			final @RequestParam("director") String director, final @RequestParam("genre") String genre,
 			final @RequestParam("price") int price, @RequestParam(required=false,value="image") String image, 

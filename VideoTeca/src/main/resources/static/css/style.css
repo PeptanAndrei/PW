@@ -720,8 +720,6 @@ i.icon7{
 }
 .video iframe{
 	min-height:225px;
-	padding:0 15px;
-	margin-top:2em;
 }
 .row_5{
 	margin-top:2em;
@@ -1037,7 +1035,7 @@ float: left;
 }
 .movie_image {
 position: relative;
-border: 2px solid #d8232a;
+padding-top: 20px;
 }
 .movie_rating {
 width: 47px;

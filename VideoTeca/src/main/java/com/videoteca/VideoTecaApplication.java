@@ -15,7 +15,7 @@ public class VideoTecaApplication {
 	@Bean
 	public EmbeddedServletContainerCustomizer containerCustomizer() {
 		return (container -> {
-			container.setPort(8012);
+			container.setPort(8001);
 		});
 	}
 

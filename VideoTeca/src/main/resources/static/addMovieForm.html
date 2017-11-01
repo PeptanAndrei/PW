@@ -19,10 +19,15 @@
 		<div class="header_top">
 			<div class="col-sm-3 header_right" >
 				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" alt=""/></a>
+					<a href="Index"><img src="images/logo.png" alt=""/></a>
 				</div>
-				<div class="cart">
-					<a href="cart.html"><img src="images/cartIcon1.png" alt=""/></a>
+				<div>
+				<ul class="header_right_box">
+					<li>
+						<div class="button" style="padding-top: 38px;"><a style="background-color:#1b5eb7; padding-left: 40px;padding-right: 40px;" href="Movie">Movies</a></div>
+			    	</li>
+					<li style="float: right;padding-top: 28px;padding-right: 20px;" id="url">   </li>
+				</ul>
 				</div>
 			</div>
 			
@@ -111,7 +116,7 @@
 		     <div class="col_1_of_3 span_1_of_3">
 					<h2>ONLY FOR DEVS</h2>
 					<ul class="first">
-						<li><a href="/addMovieForm.html">+ ADD NEW MOVIE</a></li>
+						<li><a href="/addMovie">+ ADD NEW MOVIE</a></li>
 					</ul>
 		     </div>
 		     <div class="col_1_of_3 span_1_of_3">
@@ -131,6 +136,12 @@
 		</div>
 	</div>
   </footer>
-</div>		
+</div>	
+<script>
+	jQuery.get("/getLoginStatus", function(data) {
+		var url = data+"";
+		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
+	});
+	</script>	
 </body>
 </html>
