@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.videoteca.entity.Order;
 import com.videoteca.entity.User;
+import com.videoteca.service.MovieService;
+import com.videoteca.service.OrderService;
 import com.videoteca.service.UserService;
 
 @Controller
@@ -22,6 +25,10 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private OrderService orderService;
+	@Autowired
+	private MovieService movieService;
 	
 	@RequestMapping(value= "/loginUser", method = RequestMethod.GET)
 	public String getLoginForm(){
@@ -106,6 +113,21 @@ public class UserController {
 	@RequestMapping(value="/getUser/{id}", method = RequestMethod.GET)
 	public User getUser(@PathVariable("id") Integer id){
 		return userService.findOne(id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/buy", method = RequestMethod.GET)
+	public void buyOrder() {
+		User u = userService.findOne(logged);
+		Order order = orderService.saveOrder(u);
+		
+		for(int idMovie : MovieController.cartMovies)
+		{
+			movieService.addOrder(order, idMovie);
+		}
+		orderService.addMovies(order);
+		userService.addOrder(u,order);
+		MovieController.cartMovies.clear();
 	}
 	
 }

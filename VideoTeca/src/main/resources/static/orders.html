@@ -45,31 +45,10 @@
 		</div>
 		<div class="clearfix"> </div>
 		</div>
-		<div style="text-align: center">
-				<h1 style="padding-left: 65px;margin-bottom: 0px;">Login</h1>
-				<a href="/registerUser"><button style="padding-left: 70px;padding-top: 0px;border-width: 0px;padding-bottom: 5px;" class="btn btn-link">or  <u><i>Register</i></u></button></a>
-				<div class="clearfix"></div>
-		</div>
-		<form style="text-align: center" id="loginForm" class="form form-inline" action="/log/" method="GET" >
-			<fieldset>
-				<label class="control-label" style="padding-right: 5px;color: white;">Username:</label>
-				<input class="form-control input-sm" type="text" id ="username" name="username" th:attr="value=${user.username}" ></input><br /><br />
-				
-				<label class="control-label" style="padding-right: 5px;color: white;">Password:</label> 
-				<input class="form-control input-sm" type="password" id="password" name="password"></input><br /> <br />
-				
-				
-				<div style="padding-left: 60px;">
-				<button class="btn btn-lg btn-primary" type="submit">
-					<b>Login</b>
-				</button>
-				</div>
-			</fieldset>	
-			</form>
 		
+
 	</div>
-		
-		<div class="container"> 
+	<div class="container"> 
  <footer id="footer">
  	<div id="footer-3d">
 		<div class="gp-container">
@@ -114,12 +93,12 @@
 		</div>
 	</div>
   </footer>
-</div>		
+</div>	
 <script>
 	jQuery.get("/getLoginStatus", function(data) {
 		var url = data;
 		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
-	</script>
+	</script>	
 </body>
 </html>

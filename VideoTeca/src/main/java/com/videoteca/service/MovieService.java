@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.videoteca.entity.Movie;
+import com.videoteca.entity.Order;
 import com.videoteca.repository.MovieRepository;
 
 @Service
@@ -61,6 +62,13 @@ public class MovieService {
 		}
 		
 		return cartMovies;
+	}
+	
+	public void addOrder(Order order, int idMovie)
+	{
+		Movie m = findOne(idMovie);
+		m.addOrders(order);
+		movieRepository.save(m);
 	}
 	
 }

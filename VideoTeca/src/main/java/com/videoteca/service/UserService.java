@@ -3,6 +3,7 @@ package com.videoteca.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.videoteca.entity.Order;
 import com.videoteca.entity.User;
 import com.videoteca.repository.UserRepository;
 
@@ -29,6 +30,11 @@ public class UserService {
 	
 	public Iterable<User> showAllUsers() {
 		return userRepository.findAll();
+	}
+	
+	public void addOrder(User u, Order o){
+		u.addOrders(o);
+		userRepository.save(u);
 	}
 	
 }

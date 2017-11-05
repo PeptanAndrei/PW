@@ -1,7 +1,16 @@
 package com.videoteca.entity;
 
+import java.util.*;
+
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@JsonIdentityInfo(
+generator = ObjectIdGenerators.PropertyGenerator.class, 
+property = "id")
 @Entity
 @Table(name = "movie")
 public class Movie {
@@ -31,11 +40,10 @@ public class Movie {
 	
 	@Column(name = "video")
 	private String video;
-	/*
-	@ManyToOne
-    @JoinColumn(name="idorder")
-    private Order order;
-	*/
+	
+	@ManyToMany(mappedBy="movies")
+    private List<Order> orders = new ArrayList<Order>();
+	
 	public int getId() {
 		return id;
 	}
@@ -99,13 +107,17 @@ public class Movie {
 	public void setVideo(String video) {
 		this.video = video;
 	}
-	/*
-	public Order getOrder() {
-		return order;
+	
+	public List<Order> getOrders() {
+		return orders;
 	}
 	
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
-	*/
+	
+	public void addOrders(Order order) {
+		this.orders.add(order);
+	}
+	
 }
