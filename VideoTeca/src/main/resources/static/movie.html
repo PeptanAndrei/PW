@@ -67,9 +67,6 @@
     <div id="footer-widgets" class="gp-footer-larger-first-col">
 		<div class="gp-container">
             <div class="footer-widget footer-1">
-            	<div class="wpb_wrapper">
-					<img src="images/f_logo.png" alt=""/>
-				</div> 
 				<br>
 	          <p>A digital library is a special library with a collection of digital objects that can include text, visual material, audio material, video material, stored as electronic media formats.</p>
 			  </div>
@@ -115,7 +112,7 @@
 			if(i%3==1){
 				document.getElementById("movieList").innerHTML =document.getElementById("movieList").innerHTML + '<a href="/singleMovie?id='+Movie[i].id+'"><div class=" col-md-3" style="padding-top: 5px;padding-bottom: 5px;">'+
 				'<img src="'+Movie[i].image+'" class="img-responsive" alt="" style=" height: 250px;">'+
-				'<p class="m_3">'+Movie[i].name+'</p>'+    	
+				'<br/><p class="m_3">'+Movie[i].name+'</p>'+    	
 				'<p class="m_4">'+(Movie[i].price*0.75)+' LEI  <strike style="font-style: italic;color:black" class="m_4">('+Movie[i].price+' LEI)</strike></p>'+
 				''+
 				'</div></a>';
@@ -123,7 +120,7 @@
 			else{
 				document.getElementById("movieList").innerHTML =document.getElementById("movieList").innerHTML + '<a href="/singleMovie?id='+Movie[i].id+'"><div class=" col-md-3" style="padding-top: 5px;padding-bottom: 5px;">'+
 				'<img src="'+Movie[i].image+'" class="img-responsive" alt="" style=" height: 250px;">'+
-				'<p class="m_3">'+Movie[i].name+'</p>'+    	
+				'<br/><p class="m_3">'+Movie[i].name+'</p>'+    	
 				'<p class="m_4">'+Movie[i].price+' LEI</p>'+
 				'</div></a>';
 				}
@@ -133,7 +130,7 @@
 	</script>
 	<script>
 	jQuery.get("/getLoginStatus", function(data) {
-		var url = data+"";
+		var url = data;
 		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
 	</script>

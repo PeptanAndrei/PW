@@ -35,7 +35,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 	      </div>
 	      <div class="content">
-	   	   <h4 class="m_3" style="color: white;">Sales</h4>
+	      <div class="box_1">
+      	 <h1 class="m_2">Search Movies</h1>
+      	 <div class="clearfix"> </div>
+      	 <div class="search">
+		    <form>
+				<input type="text" value="Search..." onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+				<input type="submit" value="">
+		    </form>
+		</div>
+		<div class="clearfix"> </div>
+		</div>
+	   	   <h4 class="m_3"style="font-size: 2.5em;">Sales</h4>
       	       <div class="movie_top">
       	         <div class="col-md-12 movie_box" id="movieList">
 						    <div class="clearfix"> </div>
@@ -57,9 +68,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div id="footer-widgets" class="gp-footer-larger-first-col">
 		<div class="gp-container">
             <div class="footer-widget footer-1">
-            	<div class="wpb_wrapper">
-					<img src="images/f_logo.png" alt=""/>
-				</div> 
 				<br>
 	          <p>A digital library is a special library with a collection of digital objects that can include text, visual material, audio material, video material, stored as electronic media formats.</p>
 			  </div>
@@ -104,9 +112,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		for(i=1;i<length;i+=3) {
 			document.getElementById("movieList").innerHTML =document.getElementById("movieList").innerHTML + '<a href="/singleMovie?id='+Movie[i].id+'"><div class=" col-md-3" style="padding-top: 5px;padding-bottom: 5px;">'+
 			'<img src="'+Movie[i].image+'" class="img-responsive" alt="" style=" height: 250px;">'+
-			'<p class="m_3">'+Movie[i].name+'</p>'+    	
+			'<br/><p class="m_3">'+Movie[i].name+'</p>'+    	
 			'<p class="m_4">'+(Movie[i].price*0.75)+' LEI  <strike style="font-style: italic;color:black" class="m_4">('+Movie[i].price+' LEI)</strike></p>'+
-			''+
 			'</div></a>';
 		}
 	});
@@ -114,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 <script>
 	jQuery.get("/getLoginStatus", function(data) {
-		var url = data+"";
+		var url = data;
 		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
 	</script>

@@ -12,12 +12,11 @@ public class UserService {
 	@Autowired
 	public UserRepository userRepository;
 	
-	public int saveUser(String username, String password) {
+	public void saveUser(String username, String password) {
 		User newUser = new User();
 		newUser.setUsername(username);
 		newUser.setPassword(password);
 		userRepository.save(newUser);
-		return newUser.getId();
 	}
 	
 	public User findOne(int id) {

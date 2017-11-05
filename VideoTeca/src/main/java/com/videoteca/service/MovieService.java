@@ -46,7 +46,6 @@ public class MovieService {
 	public void deleteOne(int id) {
 		
 		movieRepository.delete(id);
-		//movieRepository.save(movieRepository.findAll());
 	}
 	
 	public Iterable<Movie> showAllMovies() {

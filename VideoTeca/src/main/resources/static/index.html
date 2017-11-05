@@ -71,11 +71,7 @@
 			      <a href="/Movie" class="hvr-shutter-out-horizontal">All Movies</a>
 			    </div>
 			</li>
-	        <li><img src="images/banner1.jpg" class="img-responsive" alt=""/>
-	        	<div class="button">
-			      <a href="/singleMovie?id=1" class="hvr-shutter-out-horizontal">Movie of The Week</a>
-			    </div>
-			</li>
+	        <li><div id="weekMovie"></div></li>
 	        <li><img src="images/banner2.jpg" class="img-responsive" alt=""/>
 	        	<div class="button">
 			      <a href="/Sales" class="hvr-shutter-out-horizontal">Sales</a>
@@ -142,9 +138,6 @@
     <div id="footer-widgets" class="gp-footer-larger-first-col">
 		<div class="gp-container">
             <div class="footer-widget footer-1">
-            	<div class="wpb_wrapper">
-					<img src="images/f_logo.png" alt=""/>
-				</div> 
 				<br>
 	          <p>A digital library is a special library with a collection of digital objects that can include text, visual material, audio material, video material, stored as electronic media formats.</p>
 			  </div>
@@ -182,8 +175,14 @@
   </footer>
 </div>		
 <script>
+jQuery.get("/getWeekMovie", function(data) {
+	var url = data;
+	document.getElementById("weekMovie").innerHTML = '<img src="images/banner1.jpg" class="img-responsive" alt=""/><div class="button"><a href="' + url + '" class="hvr-shutter-out-horizontal">Movie of the week</a></div>';
+});
+</script>
+<script>
 	jQuery.get("/getLoginStatus", function(data) {
-		var url = data+"";
+		var url = data;
 		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
 	

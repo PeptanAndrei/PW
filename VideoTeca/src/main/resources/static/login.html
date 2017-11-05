@@ -45,10 +45,10 @@
 		</div>
 		<div class="clearfix"> </div>
 		</div>
-		<form style="text-align: center" id="loginForm" class="form form-inline" action="/log/" method="POST" >
+		<form style="text-align: center" id="loginForm" class="form form-inline" action="/log/" method="GET" >
 			<fieldset>
 				<h1 style="padding-left: 65px;margin-bottom: 0px;">Login</h1>
-				<button style="padding-left: 70px;padding-top: 0px;border-width: 0px;padding-bottom: 5px;" class="btn btn-link">or  <u><i>Register</i></u></button>
+				<a href="/registerUser"><button style="padding-left: 70px;padding-top: 0px;border-width: 0px;padding-bottom: 5px;" class="btn btn-link">or  <u><i>Register</i></u></button></a>
 				<div class="clearfix"></div>
 				
 				<label class="control-label" style="padding-right: 5px;color: white;">Username:</label>
@@ -78,9 +78,6 @@
     <div id="footer-widgets" class="gp-footer-larger-first-col">
 		<div class="gp-container">
             <div class="footer-widget footer-1">
-            	<div class="wpb_wrapper">
-					<img src="images/f_logo.png" alt=""/>
-				</div> 
 				<br>
 	          <p>A digital library is a special library with a collection of digital objects that can include text, visual material, audio material, video material, stored as electronic media formats.</p>
 			  </div>
@@ -119,7 +116,7 @@
 </div>		
 <script>
 	jQuery.get("/getLoginStatus", function(data) {
-		var url = data+"";
+		var url = data;
 		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
 	</script>

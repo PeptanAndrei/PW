@@ -1,5 +1,7 @@
 package com.videoteca.controller;
 
+import java.util.*;
+
 import javax.ws.rs.QueryParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,18 @@ public class UserController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/getLoggedUsername", method = RequestMethod.GET)
+	public String getUsername() {
+		Iterator<User> i = (getAllUsers()).iterator();
+		while(i.hasNext())
+		{
+			User u = i.next();
+			if(u.getId() == logged) return u.getUsername();
+		}
+		return "";
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/getLoginStatus", method = RequestMethod.GET)
 	public String getLoggedStatus() {
 		if(logged == 0) return "/loginUser";
@@ -47,13 +61,19 @@ public class UserController {
 	@RequestMapping(value="/users", method = RequestMethod.POST)
 	public String addUSER(final @RequestParam("username") String username,
 			final @RequestParam("password") String password) {
-		int id = userService.saveUser(username, password);
-		String rep = "/user?id="+id;
-		return "Created <script>location.replace('"+rep+"');</script>";
+		userService.saveUser(username, password);
+		return "<script>location.replace('/loginUser');</script>";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/log", method = RequestMethod.POST)
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public void logoutUSER() {
+		MovieController.cartMovies.clear();
+		logged=0;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/log", method = RequestMethod.GET)
 	public String logUSER(final @RequestParam("username") String username,
 			final @RequestParam("password") String password) {
 		Iterable<User> users = getAllUsers();
@@ -83,8 +103,8 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/getUser/{id}", method = RequestMethod.GET)//create method
-	public User getUser(@PathVariable("id") int id){
+	@RequestMapping(value="/getUser/{id}", method = RequestMethod.GET)
+	public User getUser(@PathVariable("id") Integer id){
 		return userService.findOne(id);
 	}
 	

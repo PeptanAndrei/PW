@@ -19,7 +19,7 @@ import com.videoteca.service.MovieService;
 @Controller
 public class MovieController {
 	
-	public ArrayList<Integer> cartMovies = new ArrayList<Integer>();
+	public static ArrayList<Integer> cartMovies = new ArrayList<Integer>();
 	
 	@Autowired
 	private MovieService movieService;
@@ -39,16 +39,34 @@ public class MovieController {
 		return "sales.html";
 	}
 	
-	@RequestMapping(value="/addCart/{id}", method = RequestMethod.GET)//edit method
-	public void addToCart(@PathVariable("id") int id){
+	@RequestMapping(value="/addCart/{id}", method = RequestMethod.GET)
+	public void addToCart(@PathVariable("id") Integer id){
 		if(!cartMovies.contains(id))
 			cartMovies.add(id);
+	}
+	
+	@RequestMapping(value="/deleteCart/{id}", method = RequestMethod.GET)
+	public void delFromCart(@PathVariable("id") Integer id){
+		Integer i = new Integer(id);
+		cartMovies.remove(i);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/cartMovies", method = RequestMethod.GET)
 	public ArrayList<Movie> getCartMovies() {
 		return movieService.showCart(cartMovies);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getWeekMovie", method = RequestMethod.GET)
+	public String getMovieofTheWeek() {
+		Iterable<Movie> movies = getAllMovies();
+		Iterator<Movie> i = movies.iterator();
+		Movie m = new Movie();
+		while(i.hasNext())
+			m = i.next();
+		int id = m.getId();
+		return "/singleMovie?id="+id;
 	}
 	
 	@RequestMapping(value= "/Cart", method = RequestMethod.GET)
@@ -74,7 +92,7 @@ public class MovieController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/movies/{id}", method = RequestMethod.POST)//edit method
+	@RequestMapping(value="/movies/{id}", method = RequestMethod.POST)
 	public String editMovie(@PathVariable("id") Integer id, final @RequestParam("name") String name, final @RequestParam("year") int year,
 			final @RequestParam("director") String director, final @RequestParam("genre") String genre,
 			final @RequestParam("price") int price, @RequestParam(required=false,value="image") String image,
@@ -90,7 +108,7 @@ public class MovieController {
 			final @RequestParam("director") String director, final @RequestParam("genre") String genre,
 			final @RequestParam("price") int price, @RequestParam(required=false,value="image") String image, 
 			final @RequestParam("video") String video) {
-		int id = movieService.saveMovie(name, year, director, genre, price, image, video);
+		Integer id = movieService.saveMovie(name, year, director, genre, price, image, video);
 		String rep = "/singleMovie?id="+id;
 		return "Created <script>location.replace('"+rep+"');</script>";
 	}
@@ -102,16 +120,16 @@ public class MovieController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/getMovie/{id}", method = RequestMethod.GET)//create method
-	public Movie getMovie(@PathVariable("id") int id){
+	@RequestMapping(value="/getMovie/{id}", method = RequestMethod.GET)
+	public Movie getMovie(@PathVariable("id") Integer id){
 		return movieService.findOne(id);
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/deleteMovie/{id}", method = RequestMethod.GET)//create method
-	public String delMovie(@PathVariable("id") int id){
+	@RequestMapping(value="/deleteMovie/{id}", method = RequestMethod.GET)
+	public String delMovie(@PathVariable("id") Integer id){
 		movieService.deleteOne(id);
-		return "deleted";//"Edited <script>location.replace('/singleMovie?id=1');</script>";
+		return "Deleted <script>location.replace('/Movie');</script>";
 	}
 	
 }

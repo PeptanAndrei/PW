@@ -584,7 +584,6 @@ background: none;
 font-style: italic;
 }
 .search form input[type="submit"] {
-background: url('../images/search.png')no-repeat  3px -2px;
 width: 20px;
 height: 20px;
 border: none;

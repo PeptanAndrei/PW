@@ -43,6 +43,7 @@
 		</div>
 		<div class="clearfix"> </div>
 		</div>
+		<h4 id="username" class="m_3"style="font-size: 2.5em;"></h4>
 	      <div class="movie_top">
       	         <div class="col-md-12 movie_box" id="cartList">
 						    <div class="clearfix"> </div>
@@ -50,7 +51,15 @@
                        
                       <div class="clearfix"> </div>
                   </div>
+           <div class="col-sm-3">
+          		<div style="float: right; padding-top: 25px;" class="up_btn"><button class="btn1" >Buy</button></div><br/>
+           		<p class="cart_names" id="totalPrice"></p><div style="padding-top: 15px;" class="up_btn"><button style="padding: 2px 40px;" class="btn1" >See history</button></div><br/>
+           		<div class="up_btn"><a href="/loginUser"><button onclick="logout()" style="padding: 2px 40px;" class="btn1" >Logout</button></a></div><br/>
+           </div>
 </div>
+</div>
+</div>
+
 <div class="container"> 
  <footer id="footer">
  	<div id="footer-3d">
@@ -61,9 +70,6 @@
     <div id="footer-widgets" class="gp-footer-larger-first-col">
 		<div class="gp-container">
             <div class="footer-widget footer-1">
-            	<div class="wpb_wrapper">
-					<img src="images/f_logo.png" alt=""/>
-				</div> 
 				<br>
 	          <p>A digital library is a special library with a collection of digital objects that can include text, visual material, audio material, video material, stored as electronic media formats.</p>
 			  </div>
@@ -104,21 +110,42 @@
 	var Movie=[];
 	jQuery.get("/cartMovies", function(data) {
 		Movie=data;
+		document.getElementById("totalPrice").innerHTML = "Total price: ";
+		var totalPrice = 0;
 		length=Movie.length;
 		for(i=0;i<length;i++) {
-			document.getElementById("cartList").innerHTML =document.getElementById("cartList").innerHTML + 
-			'<div class="col-md-12"><div class=" col-md-7" style="padding: 20px 100px 10px 100px">'+
-			'<a href="/singleMovie?id='+Movie[i].id+'"><p class="cart_names">'+Movie[i].name+'</p><img src="'+Movie[i].image+'" alt="" style=" height: 250px;"/></a>'+
-			'</div></div>';
+			if(i==length - 1)
+				document.getElementById("cartList").innerHTML =document.getElementById("cartList").innerHTML + 
+				'<div class="col-md-12" style="padding: 20px 0px 20px 10px;border-bottom: #1b5eb7 10px dashed;">'+
+				'<img class="col-md-2"src="'+Movie[i].image+'" alt="" style=" width: 200px;"/><br/><p class="col-md-9 cart_names" style="padding-right:20px;">'+Movie[i].name+'<br/><small class="m_4">'+Movie[i].price+' LEI</small></p><a href="/Cart"><button onclick="deletefromcart('+Movie[i].id+')" style="float: right;" class="col-md-3 btn1">Remove from Cart</button></a></div>';
+			else
+				document.getElementById("cartList").innerHTML =document.getElementById("cartList").innerHTML + 
+				'<div class="col-md-12" style="padding: 20px 0px 20px 10px;border-bottom: #1b5eb7 10px dotted;">'+
+				'<img class="col-md-2"src="'+Movie[i].image+'" alt="" style=" width: 200px;"/><br/><p class="col-md-9 cart_names" style="padding-right:20px;">'+Movie[i].name+'<br/><small class="m_4">'+Movie[i].price+' LEI</small></p><a href="/Cart"><button onclick="deletefromcart('+Movie[i].id+')" style="float: right;" class="col-md-3 btn1">Remove from Cart</button></a></div>';
+			totalPrice = totalPrice + Movie[i].price;
 		}
+		document.getElementById("totalPrice").innerHTML = document.getElementById("totalPrice").innerHTML + totalPrice + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	});
-	
+	</script>
+	<script>
+	function deletefromcart(idMovie) {
+	jQuery.get("/deleteCart/"+idMovie, function(data) {});
+}
 	</script>
 	<script>
 	jQuery.get("/getLoginStatus", function(data) {
-		var url = data+"";
-		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
+		document.getElementById("url").innerHTML = '<a href="' + data + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
+	</script>
+	<script>
+	jQuery.get("/getLoggedUsername", function(data) {
+		document.getElementById("username").innerHTML = 'Cart - ' + data;
+	});
+	</script>
+	<script>
+	function logout(){
+		jQuery.get("/logout", function(data) {});
+	}
 	</script>
 </body>
 </html>

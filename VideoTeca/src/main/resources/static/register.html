@@ -66,6 +66,8 @@
 			</form>
 		
 	</div>
+	</div>
+	</div>
 		
 		<div class="container"> 
  <footer id="footer">
@@ -77,9 +79,6 @@
     <div id="footer-widgets" class="gp-footer-larger-first-col">
 		<div class="gp-container">
             <div class="footer-widget footer-1">
-            	<div class="wpb_wrapper">
-					<img src="images/f_logo.png" alt=""/>
-				</div> 
 				<br>
 	          <p>A digital library is a special library with a collection of digital objects that can include text, visual material, audio material, video material, stored as electronic media formats.</p>
 			  </div>
@@ -118,7 +117,7 @@
 </div>		
 <script>
 	jQuery.get("/getLoginStatus", function(data) {
-		var url = data+"";
+		var url = data;
 		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
 	</script>

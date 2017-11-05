@@ -1,11 +1,6 @@
 package com.videoteca.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "movie")
@@ -13,7 +8,7 @@ public class Movie {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "idmovie")
 	private int id;
 	
 	@Column(name = "name")
@@ -36,7 +31,11 @@ public class Movie {
 	
 	@Column(name = "video")
 	private String video;
-	
+	/*
+	@ManyToOne
+    @JoinColumn(name="idorder")
+    private Order order;
+	*/
 	public int getId() {
 		return id;
 	}
@@ -100,5 +99,13 @@ public class Movie {
 	public void setVideo(String video) {
 		this.video = video;
 	}
+	/*
+	public Order getOrder() {
+		return order;
+	}
 	
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+	*/
 }
