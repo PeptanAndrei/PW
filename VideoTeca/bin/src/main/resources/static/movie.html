@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -10,10 +11,11 @@
 <!-- start plugins -->
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <div class="container">
-	<div class="container_wrap">
+	<div class="container_wrap" style="padding-bottom: 0px;" >
 		<div class="header_top">
 			<div class="col-sm-3 header_right" >
 				<div class="logo">
@@ -43,23 +45,18 @@
 		</div>
 		<div class="clearfix"> </div>
 		</div>
-		<h4 id="username" class="m_3"style="font-size: 2.5em;"></h4>
-	      <div class="movie_top">
-      	         <div class="col-md-12 movie_box" id="cartList">
+
+	   	   <h4 class="m_3"style="font-size: 2.5em;">Movies</h4>
+      	       <div class="movie_top">
+      	         <div class="col-md-12 movie_box" id="movieList">
 						    <div class="clearfix"> </div>
                       </div>
                        
                       <div class="clearfix"> </div>
                   </div>
-           <div class="col-sm-3">
-          		<div style="float: right;padding-top:15px;" class="up_btn"><a href="/Cart"><button onclick="buy()" class="btn1" >Buy</button></a></div><br/>
-           		<p class="cart_names" id="totalPrice"></p><br/>
-           		<div class="up_btn"><a href="/loginUser"><button onclick="logout()" style="padding: 2px 40px;" class="btn1" >Logout</button></a></div><br/>
-           </div>
 </div>
-</div>
-</div>
-
+   </div>
+ </div>
 <div class="container"> 
  <footer id="footer">
  	<div id="footer-3d">
@@ -105,52 +102,37 @@
 		</div>
 	</div>
   </footer>
-</div>	
-	<script>
+</div>		
+<script>
 	var Movie=[];
-	jQuery.get("/cartMovies", function(data) {
+	jQuery.get("/allMovies", function(data) {
 		Movie=data;
-		document.getElementById("totalPrice").innerHTML = "Total price: ";
-		var totalPrice = 0;
 		length=Movie.length;
 		for(i=0;i<length;i++) {
-			if(i==length - 1)
-				document.getElementById("cartList").innerHTML =document.getElementById("cartList").innerHTML + 
-				'<div class="col-md-12" style="padding: 20px 0px 20px 10px;border-bottom: #1b5eb7 10px dashed;">'+
-				'<img class="col-md-2"src="'+Movie[i].image+'" alt="" style=" width: 200px;"/><br/><p class="col-md-9 cart_names" style="padding-right:20px;">'+Movie[i].name+'<br/><small class="m_4">'+Movie[i].price+' LEI</small></p><a href="/Cart"><button onclick="deletefromcart('+Movie[i].id+')" style="float: right;" class="col-md-3 btn1">Remove from Cart</button></a></div>';
-			else
-				document.getElementById("cartList").innerHTML =document.getElementById("cartList").innerHTML + 
-				'<div class="col-md-12" style="padding: 20px 0px 20px 10px;border-bottom: #1b5eb7 10px dotted;">'+
-				'<img class="col-md-2"src="'+Movie[i].image+'" alt="" style=" width: 200px;"/><br/><p class="col-md-9 cart_names" style="padding-right:20px;">'+Movie[i].name+'<br/><small class="m_4">'+Movie[i].price+' LEI</small></p><a href="/Cart"><button onclick="deletefromcart('+Movie[i].id+')" style="float: right;" class="col-md-3 btn1">Remove from Cart</button></a></div>';
-			totalPrice = totalPrice + Movie[i].price;
+			if(i%3==1){
+				document.getElementById("movieList").innerHTML =document.getElementById("movieList").innerHTML + '<a href="/singleMovie?id='+Movie[i].id+'"><div class=" col-md-3" style="padding-top: 5px;padding-bottom: 5px;">'+
+				'<img src="'+Movie[i].image+'" class="img-responsive" alt="" style=" height: 250px;">'+
+				'<br/><p class="m_3">'+Movie[i].name+'</p>'+    	
+				'<p class="m_4">'+(Movie[i].price*0.75)+' LEI  <strike style="font-style: italic;color:black" class="m_4">('+Movie[i].price+' LEI)</strike></p>'+
+				''+
+				'</div></a>';
+			}
+			else{
+				document.getElementById("movieList").innerHTML =document.getElementById("movieList").innerHTML + '<a href="/singleMovie?id='+Movie[i].id+'"><div class=" col-md-3" style="padding-top: 5px;padding-bottom: 5px;">'+
+				'<img src="'+Movie[i].image+'" class="img-responsive" alt="" style=" height: 250px;">'+
+				'<br/><p class="m_3">'+Movie[i].name+'</p>'+    	
+				'<p class="m_4">'+Movie[i].price+' LEI</p>'+
+				'</div></a>';
+				}
 		}
-		document.getElementById("totalPrice").innerHTML = document.getElementById("totalPrice").innerHTML + totalPrice + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	});
-	</script>
-	<script>
-	function deletefromcart(idMovie) {
-	jQuery.get("/deleteCart/"+idMovie, function(data) {});
-}
+	
 	</script>
 	<script>
 	jQuery.get("/getLoginStatus", function(data) {
-		document.getElementById("url").innerHTML = '<a href="' + data + '"><img src="images/cartIcon1.png" alt=""/></a>';
+		var url = data;
+		document.getElementById("url").innerHTML = '<a href="' + url + '"><img src="images/cartIcon1.png" alt=""/></a>';
 	});
-	</script>
-	<script>
-	jQuery.get("/getLoggedUsername", function(data) {
-		document.getElementById("username").innerHTML = 'Cart - ' + data;
-	});
-	</script>
-	<script>
-	function logout(){
-		jQuery.get("/logout", function(data) {});
-	}
-	</script>
-	<script>
-	function buy(){
-		jQuery.get("/buy", function(data) {});
-	}
 	</script>
 </body>
 </html>

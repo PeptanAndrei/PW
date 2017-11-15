@@ -112,16 +112,16 @@
 			if(i%3==1){
 				document.getElementById("movieList").innerHTML =document.getElementById("movieList").innerHTML + '<a href="/singleMovie?id='+Movie[i].id+'"><div class=" col-md-3" style="padding-top: 5px;padding-bottom: 5px;">'+
 				'<img src="'+Movie[i].image+'" class="img-responsive" alt="" style=" height: 250px;">'+
-				'<br/><p class="m_3">'+Movie[i].name+'</p>'+    	
-				'<p class="m_4">'+(Movie[i].price*0.75)+' LEI  <strike style="font-style: italic;color:black" class="m_4">('+Movie[i].price+' LEI)</strike></p>'+
+				'<br/><p class="m_3" style= "padding-right:60px; ">'+Movie[i].name+'</p>'+    	
+				'<p class="m_4" style= "padding-right:60px; ">'+(Movie[i].price*0.75)+' LEI  <strike style="font-style: italic;color:black" class="m_4">('+Movie[i].price+' LEI)</strike></p>'+
 				''+
 				'</div></a>';
 			}
 			else{
 				document.getElementById("movieList").innerHTML =document.getElementById("movieList").innerHTML + '<a href="/singleMovie?id='+Movie[i].id+'"><div class=" col-md-3" style="padding-top: 5px;padding-bottom: 5px;">'+
 				'<img src="'+Movie[i].image+'" class="img-responsive" alt="" style=" height: 250px;">'+
-				'<br/><p class="m_3">'+Movie[i].name+'</p>'+    	
-				'<p class="m_4">'+Movie[i].price+' LEI</p>'+
+				'<br/><p class="m_3" style= "padding-right:60px; ">'+Movie[i].name+'</p>'+    	
+				'<p class="m_4" style= "padding-right:60px; ">'+Movie[i].price+' LEI</p>'+
 				'</div></a>';
 				}
 		}

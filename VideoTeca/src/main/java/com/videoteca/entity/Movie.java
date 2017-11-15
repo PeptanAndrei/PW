@@ -5,12 +5,13 @@ import java.util.*;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIdentityInfo(
-generator = ObjectIdGenerators.PropertyGenerator.class, 
-property = "id")
+//@JsonIdentityInfo(
+//generator = ObjectIdGenerators.PropertyGenerator.class, 
+//property = "id")
 @Entity
 @Table(name = "movie")
 public class Movie {
@@ -41,6 +42,7 @@ public class Movie {
 	@Column(name = "video")
 	private String video;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy="movies")
     private List<Order> orders = new ArrayList<Order>();
 	

@@ -6,11 +6,12 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;;
 
-@JsonIdentityInfo(
-generator = ObjectIdGenerators.PropertyGenerator.class, 
-property = "id")
+//@JsonIdentityInfo(
+//generator = ObjectIdGenerators.PropertyGenerator.class, 
+//property = "id")
 @Entity
 @Table(name = "user")
 public class User {
@@ -26,9 +27,9 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
+	@JsonIgnore
 	@OneToMany(mappedBy="user")
     private List<Order> orders = new ArrayList<Order>();
-	
 	
 	public int getId() {
 		return id;
